@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" fill="none">
+  <!-- Pearl Ivory Background with Champagne Borders -->
+  <rect width="600" height="750" fill="#FAF7F2"/>
+  <rect x="22" y="22" width="556" height="706" fill="#FFFFFF" stroke="#D9C4A3" stroke-width="1.8"/>
+  <rect x="34" y="34" width="532" height="682" fill="#FAF7F2" stroke="#B69A72" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- Minimal Corner Jewelry Accents -->
+  <polygon points="34,34 46,24 58,34 46,44" fill="#F1E9DD" stroke="#D9C4A3" stroke-width="1"/>
+  <polygon points="566,34 554,24 542,34 554,44" fill="#F1E9DD" stroke="#D9C4A3" stroke-width="1"/>
+  <polygon points="34,716 46,706 58,716 46,726" fill="#F1E9DD" stroke="#D9C4A3" stroke-width="1"/>
+  <polygon points="566,716 554,706 542,716 554,726" fill="#F1E9DD" stroke="#D9C4A3" stroke-width="1"/>
+
+  <!-- Delicate Arch Silhouette -->
+  <path d="M130 520 L130 330 C130 230 215 170 300 135 C385 170 470 230 470 330 L470 520" stroke="#D9C4A3" stroke-width="2" stroke-linecap="round"/>
+  <path d="M144 520 L144 338 C144 248 222 190 300 156 C378 190 456 248 456 338 L456 520" stroke="#B69A72" stroke-opacity="0.4" stroke-width="0.8" stroke-dasharray="2 2"/>
+
+  <!-- Central Pearl Monogram Medallion -->
+  <circle cx="300" cy="350" r="125" stroke="#D9C4A3" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="300" cy="350" r="140" stroke="#B69A72" stroke-opacity="0.25" stroke-width="0.8"/>
+  <circle cx="300" cy="350" r="105" fill="#FAF7F2" stroke="#D9C4A3" stroke-width="1"/>
+
+  <!-- Monogram & Typography -->
+  <text x="300" y="340" font-family="'Cormorant Garamond', Georgia, serif" font-size="64" font-style="italic" font-weight="600" fill="#51483F" text-anchor="middle" letter-spacing="4">
+    P &amp; P
+  </text>
+  <text x="300" y="380" font-family="'Great Vibes', cursive" font-size="34" fill="#B69A72" text-anchor="middle">
+    The Golden Vow
+  </text>
+  <text x="300" y="415" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" letter-spacing="5" fill="#8C8176" text-anchor="middle">
+    DECEMBER 14, 2026
+  </text>
+
+  <!-- Crown / Top Pearl -->
+  <circle cx="300" cy="135" r="4.5" fill="#FAF7F2" stroke="#B69A72" stroke-width="1.2"/>
+  <circle cx="300" cy="135" r="2" fill="#D9C4A3"/>
+</svg>

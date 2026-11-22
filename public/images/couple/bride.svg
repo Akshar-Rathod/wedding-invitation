@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" fill="none">
+  <!-- Pearl Ivory Background -->
+  <rect width="600" height="750" fill="#FAF7F2"/>
+  <rect x="25" y="25" width="550" height="700" fill="#FFFFFF" stroke="#D9C4A3" stroke-width="1.8"/>
+  <rect x="36" y="36" width="528" height="678" fill="#FAF7F2" stroke="#B69A72" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Arch Silhouette -->
+  <path d="M140 490 C140 260 460 260 460 490" stroke="#D9C4A3" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <circle cx="300" cy="350" r="130" stroke="#B69A72" stroke-width="1"/>
+  <circle cx="300" cy="350" r="105" fill="#FFFFFF" stroke="#D9C4A3" stroke-width="1"/>
+
+  <!-- Delicate Pearl Accents -->
+  <circle cx="300" cy="220" r="6" fill="#FAF7F2" stroke="#B69A72" stroke-width="1"/>
+  <circle cx="210" cy="350" r="3.5" fill="#D9C4A3"/>
+  <circle cx="390" cy="350" r="3.5" fill="#D9C4A3"/>
+
+  <!-- Bride Monogram & Script -->
+  <text x="300" y="340" font-family="'Cormorant Garamond', Georgia, serif" font-size="74" font-style="italic" font-weight="600" fill="#51483F" text-anchor="middle">
+    P
+  </text>
+  <text x="300" y="380" font-family="'Great Vibes', cursive" font-size="34" fill="#B69A72" text-anchor="middle">
+    The Bride
+  </text>
+  <text x="300" y="415" font-family="'DM Sans', sans-serif" font-size="12" font-weight="500" letter-spacing="4" fill="#8C8176" text-anchor="middle">
+    PRIYANKA RAJPURA (M.Sc. IT)
+  </text>
+</svg>

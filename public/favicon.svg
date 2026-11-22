@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Pearl Ivory & Soft Gold Wax Seal -->
+  <circle cx="32" cy="32" r="30" fill="#FAF7F2" stroke="#B69A72" stroke-width="2"/>
+  <circle cx="32" cy="32" r="26" fill="#F1E9DD" stroke="#D9C4A3" stroke-dasharray="2 2" stroke-width="1"/>
+  
+  <!-- Subtle Pearl Beads -->
+  <circle cx="32" cy="10" r="1.8" fill="#B69A72"/>
+  <circle cx="54" cy="32" r="1.8" fill="#B69A72"/>
+  <circle cx="32" cy="54" r="1.8" fill="#B69A72"/>
+  <circle cx="10" cy="32" r="1.8" fill="#B69A72"/>
+
+  <!-- Delicate Arch Silhouette -->
+  <path d="M22 40 C22 24 42 24 42 40" stroke="#B69A72" stroke-width="1.2" stroke-linecap="round"/>
+  
+  <!-- Monogram P & P -->
+  <text x="32" y="38" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" font-weight="600" font-style="italic" fill="#51483F" text-anchor="middle">
+    P&amp;P
+  </text>
+</svg>

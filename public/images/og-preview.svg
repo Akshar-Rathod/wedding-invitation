@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Pearl Ivory Background -->
+  <rect width="1200" height="630" fill="#FAF7F2"/>
+  <rect x="25" y="25" width="1150" height="580" fill="#FFFFFF" stroke="#D9C4A3" stroke-width="2"/>
+  <rect x="42" y="42" width="1116" height="546" fill="#FAF7F2" stroke="#B69A72" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+  <!-- Minimal Corner Accents -->
+  <circle cx="42" cy="42" r="4" fill="#D9C4A3"/>
+  <circle cx="1158" cy="42" r="4" fill="#D9C4A3"/>
+  <circle cx="42" cy="588" r="4" fill="#D9C4A3"/>
+  <circle cx="1158" cy="588" r="4" fill="#D9C4A3"/>
+
+  <!-- Top Monogram Crest -->
+  <circle cx="600" cy="210" r="95" stroke="#D9C4A3" stroke-width="1.5"/>
+  <circle cx="600" cy="210" r="110" stroke="#B69A72" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="3 3"/>
+
+  <!-- Monogram -->
+  <text x="600" y="225" font-family="'Cormorant Garamond', Georgia, serif" font-size="62" font-style="italic" font-weight="600" fill="#51483F" text-anchor="middle">
+    P &amp; P
+  </text>
+
+  <!-- Titles -->
+  <text x="600" y="335" font-family="'DM Sans', sans-serif" font-size="14" letter-spacing="8" font-weight="500" fill="#8C8176" text-anchor="middle">
+    || SHREE GANESHAYA NAMAH || • TOGETHER WITH THEIR FAMILIES
+  </text>
+  <text x="600" y="415" font-family="'Cormorant Garamond', Georgia, serif" font-size="64" fill="#51483F" text-anchor="middle">
+    Priyanka &amp; Paras
+  </text>
+  <text x="600" y="470" font-family="'Great Vibes', cursive" font-size="40" fill="#B69A72" text-anchor="middle">
+    The Golden Vow
+  </text>
+  <text x="600" y="520" font-family="'DM Sans', sans-serif" font-size="14" letter-spacing="4" font-weight="500" fill="#8C8176" text-anchor="middle">
+    DECEMBER 14, 2026 • BHAVNAGAR, GUJARAT
+  </text>
+</svg>

@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #F8F5EF;
+    --bg-secondary: #EFE8DC;
+    --champagne: #D9C6A5;
+    --sage-muted: #A7AD96;
+    --olive-deep: #59604B;
+    --text-primary: #39352F;
+    --text-secondary: #81796D;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F8F5EF;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D9C6A5;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A7AD96;
+  }
+}
+
+/* Subtle paper texture background pattern */
+.paper-texture {
+  background-color: #F8F5EF;
+  background-image: radial-gradient(#D9C6A5 0.5px, transparent 0.5px), radial-gradient(#D9C6A5 0.5px, #F8F5EF 0.5px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  background-opacity: 0.15;
+}
+
+/* Botanical border styles */
+.stationery-border {
+  border: 1px solid rgba(217, 198, 165, 0.45);
+  outline: 1px solid rgba(89, 96, 75, 0.2);
+  outline-offset: -6px;
+}
+
+.stationery-border-lg {
+  border: 1px solid rgba(217, 198, 165, 0.6);
+  outline: 1px solid rgba(89, 96, 75, 0.25);
+  outline-offset: -12px;
+}
+
+/* Keyframes for falling petals */
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, -50px, 0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(35px, 50vh, 0) rotate(180deg) scale(1.05);
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(-20px, 105vh, 0) rotate(360deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes leafDrift {
+  0% {
+    transform: translate3d(0, -40px, 0) rotate(15deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate3d(-40px, 55vh, 0) rotate(90deg);
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(25px, 105vh, 0) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.animate-petal {
+  animation-name: petalFall;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.animate-leaf {
+  animation-name: leafDrift;
+  animation-timing-function: cubic-bezier(0.35, 0, 0.65, 1);
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-petal,
+  .animate-leaf {
+    animation: none !important;
+    display: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
