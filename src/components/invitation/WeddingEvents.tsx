@@ -19,8 +19,27 @@ interface WeddingEventsProps {
   config: WeddingConfig;
 }
 
+const groupEventsByDay = (events: WeddingConfig['events']) => {
+  const groups: { key: string; day: string; date: string; events: typeof events }[] = [];
+  const indexByKey = new Map<string, number>();
+
+  for (const event of events) {
+    const key = `${event.day}::${event.date}`;
+    const existing = indexByKey.get(key);
+    if (existing !== undefined) {
+      groups[existing].events.push(event);
+    } else {
+      indexByKey.set(key, groups.length);
+      groups.push({ key, day: event.day, date: event.date, events: [event] });
+    }
+  }
+
+  return groups;
+};
+
 export const WeddingEvents: React.FC<WeddingEventsProps> = ({ config }) => {
   const activeEvents = config.events.filter((e) => e.enabled !== false);
+  const dayGroups = groupEventsByDay(activeEvents);
 
   if (activeEvents.length === 0) {
     return null;
@@ -69,12 +88,29 @@ export const WeddingEvents: React.FC<WeddingEventsProps> = ({ config }) => {
           </ScrollReveal>
         </div>
 
-        {/* Editorial Event List */}
-        <div className="space-y-12 sm:space-y-16">
-          {activeEvents.map((evt, index) => {
+        {/* Editorial Event List — grouped by celebration day */}
+        <div className="space-y-14 sm:space-y-20">
+          {dayGroups.map((group, groupIndex) => (
+            <div key={group.key} className="space-y-8 sm:space-y-10">
+              <ScrollReveal delay={0.1 * groupIndex} yOffset={20}>
+                <div className="sticky top-[max(0.75rem,env(safe-area-inset-top))] z-20 flex justify-center py-2">
+                  <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-3 px-5 py-2.5 rounded-full bg-bg-secondary/95 backdrop-blur-md border border-champagne/70 shadow-sm">
+                    <span className="font-serif text-lg sm:text-xl text-olive-deep">{group.day}</span>
+                    <span className="hidden sm:inline text-champagne-dark">•</span>
+                    <span className="font-sans text-[11px] sm:text-xs tracking-[0.2em] uppercase text-text-secondary">
+                      {group.date}
+                    </span>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {group.events.map((evt, index) => {
             return (
-              <ScrollReveal key={evt.id} delay={0.15 * (index % 3)} yOffset={30}>
-                <div className="relative bg-bg-primary rounded-sm p-6 sm:p-10 stationery-border shadow-soft-card overflow-hidden">
+              <ScrollReveal key={evt.id} delay={0.12 * (index % 3)} yOffset={30}>
+                <div
+                  id={`event-${evt.id}`}
+                  className="relative bg-bg-primary rounded-sm p-6 sm:p-10 stationery-border shadow-soft-card overflow-hidden scroll-mt-24"
+                >
                   
                   {/* Subtle Corner Florals */}
                   <div className="absolute top-2 left-2 opacity-35 pointer-events-none">
@@ -88,10 +124,6 @@ export const WeddingEvents: React.FC<WeddingEventsProps> = ({ config }) => {
                   <div className="text-center relative z-10">
                     <div className="inline-flex items-center justify-center gap-2 p-2 rounded-full bg-bg-secondary/80 border border-champagne/60 mb-3 shadow-inner">
                       {renderEventIcon(evt.icon)}
-                    </div>
-
-                    <div className="font-sans text-[11px] sm:text-xs tracking-[0.2em] uppercase text-text-secondary font-medium">
-                      {evt.day} • {evt.date}
                     </div>
 
                     <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-olive-deep font-normal mt-1">
@@ -162,7 +194,7 @@ export const WeddingEvents: React.FC<WeddingEventsProps> = ({ config }) => {
                             href={evt.mapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-xs font-sans tracking-wider uppercase text-olive-deep hover:text-olive-darker font-medium underline underline-offset-4 transition-colors"
+                            className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2 rounded-full border border-olive-deep/25 bg-bg-primary/80 text-xs font-sans tracking-wider uppercase text-olive-deep hover:border-olive-deep hover:bg-bg-primary transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-olive-deep/35"
                           >
                             <Navigation className="w-3.5 h-3.5" />
                             <span>View on Map</span>
@@ -186,6 +218,8 @@ export const WeddingEvents: React.FC<WeddingEventsProps> = ({ config }) => {
               </ScrollReveal>
             );
           })}
+            </div>
+          ))}
         </div>
 
       </div>

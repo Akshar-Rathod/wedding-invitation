@@ -5,6 +5,8 @@ import { DecorativeDivider } from '../ui/DecorativeDivider';
 import { FloralDecoration } from '../ui/FloralDecoration';
 import { FramedPhotograph } from '../ui/FramedPhotograph';
 import { ScrollReveal } from '../animations/ScrollReveal';
+import { SacredInvocation } from '../ui/SacredInvocation';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 interface HeroSectionProps {
   config: WeddingConfig;
@@ -12,25 +14,24 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ config }) => {
   const { couple, bride, groom, wedding, invitation } = config;
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-between pt-16 pb-10 px-4 sm:px-6 overflow-hidden paper-texture">
       {/* Corner Botanical Sprigs */}
-      <div className="absolute top-4 left-4 pointer-events-none opacity-50 hidden sm:block">
+      <div className="absolute top-4 left-4 pointer-events-none opacity-35 sm:opacity-50">
         <FloralDecoration position="top-left" size="md" />
       </div>
-      <div className="absolute top-4 right-4 pointer-events-none opacity-50 hidden sm:block">
+      <div className="absolute top-4 right-4 pointer-events-none opacity-35 sm:opacity-50">
         <FloralDecoration position="top-right" size="md" />
       </div>
 
       {/* Gentle center sunlight vignette */}
-      <div className="absolute inset-0 bg-radial-gradient from-champagne/15 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 radial-vignette-hero pointer-events-none" />
 
       {/* Top Pretitle / Family Blessing */}
-      <ScrollReveal delay={0.1} yOffset={15} className="w-full text-center max-w-xl mx-auto pt-4">
-        <span className="inline-block text-[11px] sm:text-xs font-sans tracking-[0.3em] uppercase text-text-secondary border-b border-champagne/60 pb-1">
-          {invitation.pretitle}
-        </span>
+      <ScrollReveal delay={0.1} yOffset={15} className="w-full text-center max-w-xl mx-auto pt-2">
+        <SacredInvocation />
       </ScrollReveal>
 
       {/* Main Couple Names & Typography */}
@@ -66,7 +67,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config }) => {
 
         {/* Wedding Date & City Banner */}
         <ScrollReveal delay={0.4} yOffset={15} className="mt-4 sm:mt-6">
-          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-6 px-6 py-2.5 rounded-full bg-bg-secondary/70 border border-champagne/80 shadow-sm text-text-primary text-xs sm:text-sm font-serif italic tracking-wide">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-6 px-6 py-2.5 rounded-full bg-bg-primary border border-champagne/80 shadow-soft-card text-text-primary text-xs sm:text-sm font-serif italic tracking-wide">
             <span className="flex items-center gap-1.5">
               <Calendar className="w-3.5 h-3.5 text-olive-deep" />
               {invitation.dateDisplay}
@@ -95,7 +96,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ config }) => {
           className="group flex flex-col items-center gap-1 text-text-secondary/70 hover:text-olive-deep transition-colors"
         >
           <span className="text-[10px] uppercase font-sans tracking-[0.25em]">Scroll Down</span>
-          <ChevronDown className="w-4 h-4 animate-bounce text-olive-deep" />
+          <ChevronDown
+            className={`w-4 h-4 text-olive-deep ${prefersReducedMotion ? '' : 'motion-safe-bounce'}`}
+          />
         </a>
       </ScrollReveal>
     </section>

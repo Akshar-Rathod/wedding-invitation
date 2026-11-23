@@ -62,7 +62,7 @@ export const DecorativeDivider: React.FC<DecorativeDividerProps> = ({
         <path d="M16 10 C13 7 8 9 10 12 C12 14 16 11 16 10 Z" fill="currentColor" fillOpacity="0.3" strokeWidth="0.8" />
         
         {/* Center floral rosette */}
-        <circle cx="40" cy="16" r="3.5" fill="#D9C6A5" strokeWidth="1" />
+        <circle cx="40" cy="16" r="3.5" fill="#A6844E" strokeWidth="1" />
         <circle cx="40" cy="16" r="1.5" fill="currentColor" />
         <circle cx="34" cy="16" r="1.5" fill="currentColor" fillOpacity="0.4" />
         <circle cx="46" cy="16" r="1.5" fill="currentColor" fillOpacity="0.4" />

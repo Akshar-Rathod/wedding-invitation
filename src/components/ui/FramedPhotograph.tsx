@@ -45,6 +45,12 @@ export const FramedPhotograph: React.FC<FramedPhotographProps> = ({
         <div className={`relative overflow-hidden w-full ${aspectClass} bg-bg-secondary/40 flex items-center justify-center`}>
           {hasValidImage ? (
             <>
+              {!isLoaded && (
+                <div
+                  className="absolute inset-0 bg-gradient-to-br from-bg-secondary via-bg-primary to-bg-secondary animate-pulse"
+                  aria-hidden
+                />
+              )}
               <img
                 src={src}
                 alt={alt}

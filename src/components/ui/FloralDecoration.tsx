@@ -30,12 +30,12 @@ export const FloralDecoration: React.FC<FloralDecorationProps> = ({
           <path d="M10 50 C30 20 70 20 90 50" strokeWidth="1.2" strokeLinecap="round" />
           <path d="M25 40 C35 25 65 25 75 40" strokeWidth="0.8" strokeDasharray="2 2" />
           {/* Botanical leaves along curve */}
-          <path d="M30 32 C26 26 20 28 23 35 Z" fill="#A7AD96" fillOpacity="0.4" strokeWidth="0.8" />
-          <path d="M42 24 C40 18 34 20 37 27 Z" fill="#A7AD96" fillOpacity="0.4" strokeWidth="0.8" />
-          <path d="M58 24 C60 18 66 20 63 27 Z" fill="#A7AD96" fillOpacity="0.4" strokeWidth="0.8" />
-          <path d="M70 32 C74 26 80 28 77 35 Z" fill="#A7AD96" fillOpacity="0.4" strokeWidth="0.8" />
+          <path d="M30 32 C26 26 20 28 23 35 Z" fill="#6E765C" fillOpacity="0.75" strokeWidth="0.8" />
+          <path d="M42 24 C40 18 34 20 37 27 Z" fill="#6E765C" fillOpacity="0.75" strokeWidth="0.8" />
+          <path d="M58 24 C60 18 66 20 63 27 Z" fill="#6E765C" fillOpacity="0.75" strokeWidth="0.8" />
+          <path d="M70 32 C74 26 80 28 77 35 Z" fill="#6E765C" fillOpacity="0.75" strokeWidth="0.8" />
           {/* Central top bloom */}
-          <circle cx="50" cy="20" r="3" fill="#D9C6A5" strokeWidth="0.8" />
+          <circle cx="50" cy="20" r="3" fill="#A6844E" strokeWidth="0.8" />
           <path d="M50 15 L50 20" strokeWidth="1" />
         </svg>
       </div>
@@ -57,17 +57,17 @@ export const FloralDecoration: React.FC<FloralDecorationProps> = ({
     >
       <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" className="w-full h-full">
         {/* Corner frame ornament */}
-        <path d="M4 35 L4 4 L35 4" strokeWidth="1.2" strokeLinecap="round" stroke="#D9C6A5" />
+        <path d="M4 35 L4 4 L35 4" strokeWidth="1.2" strokeLinecap="round" stroke="#A6844E" />
         <path d="M10 25 L10 10 L25 10" strokeWidth="0.8" stroke="#59604B" strokeOpacity="0.5" />
         {/* Curving vine */}
         <path d="M12 12 C25 25 35 45 42 70" strokeWidth="1" strokeLinecap="round" />
         <path d="M22 22 C32 15 45 18 55 22" strokeWidth="0.8" strokeLinecap="round" />
         {/* Leaves */}
-        <path d="M22 25 C16 32 18 40 26 36 C28 32 25 27 22 25 Z" fill="#A7AD96" fillOpacity="0.35" strokeWidth="0.8" />
-        <path d="M30 40 C26 50 32 56 38 48 C37 44 33 41 30 40 Z" fill="#A7AD96" fillOpacity="0.35" strokeWidth="0.8" />
-        <path d="M32 18 C40 12 48 16 44 24 C38 23 34 20 32 18 Z" fill="#A7AD96" fillOpacity="0.35" strokeWidth="0.8" />
+        <path d="M22 25 C16 32 18 40 26 36 C28 32 25 27 22 25 Z" fill="#6E765C" fillOpacity="0.7" strokeWidth="0.8" />
+        <path d="M30 40 C26 50 32 56 38 48 C37 44 33 41 30 40 Z" fill="#6E765C" fillOpacity="0.7" strokeWidth="0.8" />
+        <path d="M32 18 C40 12 48 16 44 24 C38 23 34 20 32 18 Z" fill="#6E765C" fillOpacity="0.7" strokeWidth="0.8" />
         {/* Little bud */}
-        <circle cx="55" cy="22" r="2.5" fill="#D9C6A5" strokeWidth="0.8" />
+        <circle cx="55" cy="22" r="2.5" fill="#A6844E" strokeWidth="0.8" />
       </svg>
     </div>
   );

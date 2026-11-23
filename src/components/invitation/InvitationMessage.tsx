@@ -14,7 +14,7 @@ export const InvitationMessage: React.FC<InvitationMessageProps> = ({ config }) 
   return (
     <section 
       id="invitation-message"
-      className="relative py-20 sm:py-28 px-4 sm:px-6 bg-bg-secondary/40 overflow-hidden"
+      className="relative py-20 sm:py-28 px-4 sm:px-6 bg-bg-secondary overflow-hidden"
     >
       <div className="max-w-2xl mx-auto text-center relative z-10">
         <ScrollReveal delay={0.1}>
@@ -35,7 +35,7 @@ export const InvitationMessage: React.FC<InvitationMessageProps> = ({ config }) 
         </ScrollReveal>
 
         <ScrollReveal delay={0.4}>
-          <div className="stationery-border p-8 sm:p-12 bg-bg-primary/95 rounded-sm shadow-soft-card max-w-xl mx-auto">
+          <div className="stationery-border-lg p-8 sm:p-12 bg-bg-primary rounded-sm shadow-soft-card max-w-xl mx-auto">
             <p className="font-serif italic text-base sm:text-xl md:text-2xl text-text-primary leading-relaxed sm:leading-loose">
               "{invitation.message}"
             </p>
@@ -51,8 +51,16 @@ export const InvitationMessage: React.FC<InvitationMessageProps> = ({ config }) 
           </div>
         </ScrollReveal>
 
+        {invitation.closingMessage && (
+          <ScrollReveal delay={0.45} className="mt-8 max-w-lg mx-auto">
+            <p className="font-sans text-sm sm:text-base text-text-secondary leading-relaxed text-pretty">
+              {invitation.closingMessage}
+            </p>
+          </ScrollReveal>
+        )}
+
         <ScrollReveal delay={0.5}>
-          <DecorativeDivider variant="simple" />
+          <DecorativeDivider variant="simple" className={invitation.closingMessage ? 'mt-8' : undefined} />
         </ScrollReveal>
       </div>
     </section>

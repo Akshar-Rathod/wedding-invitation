@@ -143,49 +143,49 @@ export const MusicToggle: React.FC<MusicToggleProps> = ({ config, autoPlayTrigge
   }
 
   return (
-    <div className="fixed top-5 right-5 z-40 print:hidden">
+    <div className="fixed safe-fixed-bottom safe-fixed-right z-40 print:hidden">
       <button
         onClick={toggleMusic}
         type="button"
         disabled={hasError}
-        aria-label={hasError ? "Audio unavailable" : isPlaying ? "Mute wedding music" : "Play wedding music"}
-        title={hasError ? "Audio unavailable" : isPlaying ? "Mute music" : "Play music"}
-        className={`group relative flex items-center gap-2.5 px-3.5 py-2 rounded-full backdrop-blur-md border shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-gold/50 ${
+        aria-label={hasError ? 'Audio unavailable' : isPlaying ? 'Mute wedding music' : 'Play wedding music'}
+        title={hasError ? 'Audio unavailable' : isPlaying ? 'Mute music' : 'Play music'}
+        className={`group relative flex items-center gap-2 sm:gap-2.5 min-h-[44px] px-3 sm:px-3.5 py-2 rounded-full backdrop-blur-md border shadow-sm transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-olive-deep/40 ${
           hasError
-            ? 'opacity-40 cursor-not-allowed bg-[#FAF7F2]/60 border-[#D9C4A3]/30 text-[#8C8176]'
+            ? 'opacity-40 cursor-not-allowed bg-bg-primary/60 border-champagne/30 text-text-muted'
             : isPlaying
-            ? 'bg-[#FAF7F2]/95 border-[#D9C4A3] text-[#51483F] shadow-md shadow-[#D9C4A3]/10 hover:border-[#B69A72]'
-            : 'bg-[#FAF7F2]/80 border-[#D9C4A3]/50 text-[#8C8176] hover:border-[#B69A72] hover:text-[#51483F]'
+            ? 'bg-bg-primary/95 border-champagne text-text-primary shadow-md hover:border-champagne-dark'
+            : 'bg-bg-primary/85 border-champagne/60 text-text-secondary hover:border-champagne-dark hover:text-text-primary'
         }`}
       >
-        <span className="relative flex items-center justify-center w-4 h-4 text-accent-antique">
+        <span className="relative flex items-center justify-center w-4 h-4">
           {isPlaying ? (
-            <Volume2 className="w-4 h-4 text-[#B69A72]" />
+            <Volume2 className="w-4 h-4 text-champagne-dark" />
           ) : (
-            <VolumeX className="w-4 h-4 text-[#8C8176]" />
+            <VolumeX className="w-4 h-4 text-text-secondary" />
           )}
         </span>
 
         {/* Animated sound wave bars when playing */}
-        <div className="flex items-center gap-0.5 h-3">
+        <div className="flex items-center gap-0.5 h-3" aria-hidden="true">
           <span
             className={`w-0.5 rounded-full transition-all duration-300 ${
-              isPlaying ? 'bg-[#B69A72] h-3 animate-pulse' : 'bg-[#8C8176]/40 h-1'
+              isPlaying ? 'bg-champagne-dark h-3 animate-pulse' : 'bg-text-muted/50 h-1'
             }`}
           />
           <span
             className={`w-0.5 rounded-full transition-all duration-300 ${
-              isPlaying ? 'bg-[#D9C4A3] h-2 animate-pulse delay-75' : 'bg-[#8C8176]/40 h-1.5'
+              isPlaying ? 'bg-champagne h-2 animate-pulse delay-75' : 'bg-text-muted/40 h-1.5'
             }`}
           />
           <span
             className={`w-0.5 rounded-full transition-all duration-300 ${
-              isPlaying ? 'bg-[#B69A72] h-3.5 animate-pulse delay-150' : 'bg-[#8C8176]/40 h-1'
+              isPlaying ? 'bg-champagne-dark h-3.5 animate-pulse delay-150' : 'bg-text-muted/50 h-1'
             }`}
           />
         </div>
 
-        <span className="font-sans text-[11px] tracking-wider uppercase transition-colors font-medium">
+        <span className="hidden sm:inline font-sans text-[11px] tracking-wider uppercase transition-colors font-medium">
           {isPlaying ? 'Mute' : 'Play Music'}
         </span>
       </button>

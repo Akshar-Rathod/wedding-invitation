@@ -3,7 +3,7 @@ import { WeddingConfig } from '../../types/wedding';
 import { DecorativeDivider } from '../ui/DecorativeDivider';
 import { FloralDecoration } from '../ui/FloralDecoration';
 import { ScrollReveal } from '../animations/ScrollReveal';
-import { ArrowUp, Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 interface ClosingSectionProps {
   config: WeddingConfig;
@@ -20,7 +20,7 @@ export const ClosingSection: React.FC<ClosingSectionProps> = ({ config }) => {
   };
 
   return (
-    <footer className="relative py-24 sm:py-32 px-4 sm:px-6 bg-bg-primary overflow-hidden text-center paper-texture border-t border-champagne/40">
+    <footer className="relative py-24 sm:py-32 px-4 sm:px-6 bg-bg-secondary overflow-hidden text-center border-t border-champagne/50">
       
       {/* Decorative Botanical Corners */}
       <div className="absolute bottom-6 left-6 opacity-40 pointer-events-none hidden sm:block">
@@ -30,7 +30,7 @@ export const ClosingSection: React.FC<ClosingSectionProps> = ({ config }) => {
         <FloralDecoration position="bottom-right" size="lg" />
       </div>
 
-      <div className="max-w-2xl mx-auto relative z-10">
+      <div className="max-w-2xl mx-auto relative z-10 rounded-sm bg-bg-primary stationery-border-lg shadow-soft-card px-6 py-12 sm:px-12 sm:py-16">
         
         <ScrollReveal delay={0.1}>
           <FloralDecoration position="center-crest" className="mb-4" />
@@ -69,20 +69,12 @@ export const ClosingSection: React.FC<ClosingSectionProps> = ({ config }) => {
           <button
             onClick={scrollToTop}
             type="button"
-            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-bg-secondary/80 border border-champagne/80 text-olive-deep text-xs font-sans tracking-widest uppercase hover:bg-bg-primary hover:border-olive-deep hover:shadow-sm transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-bg-secondary border border-champagne/80 text-olive-deep text-xs font-sans tracking-widest uppercase hover:bg-bg-primary hover:border-olive-deep hover:shadow-sm transition-all duration-300"
           >
             <span>Back to Top</span>
             <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </ScrollReveal>
-
-        <div className="mt-14 pt-8 border-t border-champagne/30 text-text-secondary/70 text-[11px] font-sans tracking-wider">
-          <p className="flex items-center justify-center gap-1.5">
-            <span>Crafted with love for</span>
-            <span className="text-olive-deep font-serif italic text-sm">{couple.displayName}</span>
-            <Heart className="w-3 h-3 text-olive-deep fill-champagne/60 inline" />
-          </p>
-        </div>
 
       </div>
     </footer>

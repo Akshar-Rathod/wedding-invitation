@@ -8,34 +8,38 @@ export default {
     extend: {
       colors: {
         bg: {
-          primary: '#F8F5EF',
-          secondary: '#EFE8DC',
+          primary: '#F1EADF',
+          secondary: '#E4D8C6',
         },
         champagne: {
-          DEFAULT: '#D9C6A5',
-          light: '#E7DCBE',
-          dark: '#BFA87E',
+          DEFAULT: '#A6844E',
+          light: '#C4A56E',
+          dark: '#6B4F28',
         },
         sage: {
-          muted: '#A7AD96',
-          light: '#C4C9B8',
-          dark: '#7D846C',
+          muted: '#6E765C',
+          light: '#9AA286',
+          dark: '#4E5640',
         },
         olive: {
-          deep: '#59604B',
-          darker: '#3F4435',
-          light: '#727B62',
+          deep: '#3E4634',
+          darker: '#2A3122',
+          light: '#5A634C',
         },
         text: {
-          primary: '#39352F',
-          secondary: '#81796D',
-          muted: '#A39C90',
+          primary: '#2A261F',
+          secondary: '#4A433C',
+          muted: '#6B635A',
         },
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"DM Sans"', 'sans-serif'],
         script: ['"Great Vibes"', 'cursive'],
+        devanagari: ['"Tiro Devanagari Sanskrit"', 'serif'],
+      },
+      perspective: {
+        envelope: '900px',
       },
       boxShadow: {
         'soft-card': '0 10px 30px -5px rgba(57, 53, 47, 0.06), 0 4px 12px -2px rgba(57, 53, 47, 0.04)',

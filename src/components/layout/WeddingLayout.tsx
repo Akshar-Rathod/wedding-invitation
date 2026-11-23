@@ -13,6 +13,7 @@ import { ClosingSection } from '../invitation/ClosingSection';
 import { FallingPetals } from '../animations/FallingPetals';
 import { MusicToggle } from '../ui/MusicToggle';
 import { BackToTop } from '../ui/BackToTop';
+import { EventsQuickNav } from '../ui/EventsQuickNav';
 
 interface WeddingLayoutProps {
   config: WeddingConfig;
@@ -30,7 +31,7 @@ export const WeddingLayout: React.FC<WeddingLayoutProps> = ({ config }) => {
     }
     return 'bride';
   };
-  const [viewSide, setViewSide] = useState<'bride' | 'groom'>(getInitialSide());
+  const [viewSide] = useState<'bride' | 'groom'>(getInitialSide);
 
   const handleOpenStart = (musicAllowed: boolean) => {
     if (musicAllowed) setAutoPlayMusic(true);
@@ -41,22 +42,15 @@ export const WeddingLayout: React.FC<WeddingLayoutProps> = ({ config }) => {
     if (musicAllowed) setAutoPlayMusic(true);
   };
 
-  const toggleSide = () => setViewSide(prev => (prev === 'bride' ? 'groom' : 'bride'));
-
   return (
     <div className="relative min-h-screen bg-bg-primary text-text-primary selection:bg-champagne selection:text-primary">
       <FallingPetals />
       {config.music.enabled && (
         <MusicToggle config={config.music} autoPlayTriggered={autoPlayMusic} />
       )}
-      <div className="fixed top-5 left-5 z-40">
-        <button
-          onClick={toggleSide}
-          className="px-3 py-2 rounded-full bg-bg-primary/80 border border-champagne/60 text-text-secondary hover:bg-bg-primary/95 hover:text-primary transition"
-        >
-          {viewSide === 'bride' ? 'View Groom' : 'View Bride'}
-        </button>
-      </div>
+      {envelopeOpened && config.sections.events && (
+        <EventsQuickNav events={config.events} />
+      )}
       {config.sections.envelope && !envelopeOpened && (
         <InvitationEnvelope
           config={config}

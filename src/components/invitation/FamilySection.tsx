@@ -22,8 +22,8 @@ export const FamilySection: React.FC<FamilySectionProps> = ({ config }) => {
   }
 
   return (
-    <section className="relative py-20 sm:py-24 px-4 sm:px-6 bg-bg-primary overflow-hidden paper-texture">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="relative py-20 sm:py-24 px-4 sm:px-6 bg-bg-secondary overflow-hidden">
+      <div className="max-w-3xl mx-auto text-center rounded-sm bg-bg-primary stationery-border-lg shadow-soft-card px-6 py-10 sm:px-12 sm:py-14">
         
         <ScrollReveal delay={0.1}>
           <span className="font-sans text-xs tracking-[0.25em] uppercase text-text-secondary">
@@ -52,7 +52,7 @@ export const FamilySection: React.FC<FamilySectionProps> = ({ config }) => {
           {/* Bride's Family */}
           {brideParents && (
             <ScrollReveal delay={0.3} yOffset={20}>
-              <div className="bg-bg-secondary/50 p-6 sm:p-8 rounded-sm stationery-border text-center">
+              <div className="bg-bg-secondary p-6 sm:p-8 rounded-sm stationery-border text-center">
                 <span className="font-sans text-[10px] tracking-widest uppercase text-text-secondary block">
                   {brideParents.title || 'With Compliments From'}
                 </span>
@@ -73,7 +73,7 @@ export const FamilySection: React.FC<FamilySectionProps> = ({ config }) => {
           {/* Groom's Family */}
           {groomParents && (
             <ScrollReveal delay={0.35} yOffset={20}>
-              <div className="bg-bg-secondary/50 p-6 sm:p-8 rounded-sm stationery-border text-center">
+              <div className="bg-bg-secondary p-6 sm:p-8 rounded-sm stationery-border text-center">
                 <span className="font-sans text-[10px] tracking-widest uppercase text-text-secondary block">
                   {groomParents.title || 'Warmly Invited By'}
                 </span>

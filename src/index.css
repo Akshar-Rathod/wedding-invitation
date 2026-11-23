@@ -4,18 +4,24 @@
 
 @layer base {
   :root {
-    --bg-primary: #F8F5EF;
-    --bg-secondary: #EFE8DC;
-    --champagne: #D9C6A5;
-    --sage-muted: #A7AD96;
-    --olive-deep: #59604B;
-    --text-primary: #39352F;
-    --text-secondary: #81796D;
+    --bg-primary: #F1EADF;
+    --bg-secondary: #E4D8C6;
+    --champagne: #A6844E;
+    --sage-muted: #6E765C;
+    --olive-deep: #3E4634;
+    --text-primary: #2A261F;
+    --text-secondary: #4A433C;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
@@ -31,37 +37,87 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #F8F5EF;
+    background: #F1EADF;
   }
   ::-webkit-scrollbar-thumb {
-    background: #D9C6A5;
+    background: #A6844E;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #A7AD96;
+    background: #6E765C;
   }
 }
 
-/* Subtle paper texture background pattern */
+/* Subtle paper texture. Dots must be ~1px: a 0.5px dot vanishes on
+   typical desktop screens (1x) but shows on phone screens (2x/3x). */
 .paper-texture {
-  background-color: #F8F5EF;
-  background-image: radial-gradient(#D9C6A5 0.5px, transparent 0.5px), radial-gradient(#D9C6A5 0.5px, #F8F5EF 0.5px);
-  background-size: 24px 24px;
-  background-position: 0 0, 12px 12px;
-  background-opacity: 0.15;
+  background-color: #F1EADF;
+  background-image: radial-gradient(circle, rgba(107, 79, 40, 0.45) 1px, transparent 1.15px);
+  background-size: 22px 22px;
 }
 
 /* Botanical border styles */
 .stationery-border {
-  border: 1px solid rgba(217, 198, 165, 0.45);
-  outline: 1px solid rgba(89, 96, 75, 0.2);
+  border: 1px solid rgba(166, 132, 78, 0.55);
+  outline: 1px solid rgba(62, 70, 52, 0.28);
   outline-offset: -6px;
 }
 
 .stationery-border-lg {
-  border: 1px solid rgba(217, 198, 165, 0.6);
-  outline: 1px solid rgba(89, 96, 75, 0.25);
+  border: 1px solid rgba(166, 132, 78, 0.7);
+  outline: 1px solid rgba(62, 70, 52, 0.32);
   outline-offset: -12px;
+}
+
+/* Centered warm vignette (replaces invalid bg-radial-gradient utility) */
+.radial-vignette-hero {
+  background: radial-gradient(
+    ellipse 85% 70% at 50% 35%,
+    rgba(166, 132, 78, 0.22),
+    transparent 68%
+  );
+}
+
+@layer utilities {
+  .motion-safe-bounce {
+    animation: bounce 1s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .motion-safe-bounce {
+      animation: none;
+    }
+  }
+}
+
+.radial-vignette-envelope {
+  background: radial-gradient(
+    ellipse 90% 80% at 50% 45%,
+    rgba(166, 132, 78, 0.26),
+    transparent 55%
+  );
+}
+
+/* Fixed controls clear iPhone notch / home indicator */
+.safe-fixed-top {
+  top: max(1rem, env(safe-area-inset-top, 0px));
+}
+
+.safe-fixed-bottom {
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+}
+
+.safe-fixed-left {
+  left: max(1rem, env(safe-area-inset-left, 0px));
+}
+
+.safe-fixed-right {
+  right: max(1rem, env(safe-area-inset-right, 0px));
+}
+
+/* Back-to-top sits above the bottom-right music control */
+.safe-fixed-above-music {
+  bottom: max(5.25rem, calc(env(safe-area-inset-bottom, 0px) + 3.75rem));
 }
 
 /* Keyframes for falling petals */

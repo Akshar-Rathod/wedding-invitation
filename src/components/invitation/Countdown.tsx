@@ -4,7 +4,7 @@ import { useCountdown } from '../../hooks/useCountdown';
 import { formatTimeNumber } from '../../utils/date';
 import { DecorativeDivider } from '../ui/DecorativeDivider';
 import { ScrollReveal } from '../animations/ScrollReveal';
-import { Sparkles, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 interface CountdownProps {
   config: WeddingConfig;
@@ -40,15 +40,19 @@ export const Countdown: React.FC<CountdownProps> = ({ config }) => {
                 The Celebration Has Begun!
               </h3>
               <p className="font-sans text-sm text-text-secondary mt-2">
-                Thank you for showering Aarya & Kabir with your eternal blessings and love.
+                Thank you for showering {couple.displayName} with your eternal blessings and love.
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-4 gap-2 sm:gap-6 max-w-xl mx-auto">
-              
+            <div
+              className="grid grid-cols-4 gap-1.5 sm:gap-6 max-w-xl mx-auto"
+              role="timer"
+              aria-live="polite"
+              aria-label="Countdown to wedding"
+            >
               {/* Days */}
-              <div className="flex flex-col items-center p-3 sm:p-6 bg-bg-primary/90 rounded-sm stationery-border shadow-soft-card">
-                <span className="font-serif text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums">
+              <div className="flex flex-col items-center p-2.5 sm:p-6 bg-bg-primary rounded-sm stationery-border shadow-soft-card min-w-0">
+                <span className="font-serif text-xl min-[380px]:text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums leading-none">
                   {formatTimeNumber(time.days)}
                 </span>
                 <span className="font-sans text-[10px] sm:text-xs tracking-widest uppercase text-text-secondary mt-1 sm:mt-2">
@@ -57,8 +61,8 @@ export const Countdown: React.FC<CountdownProps> = ({ config }) => {
               </div>
 
               {/* Hours */}
-              <div className="flex flex-col items-center p-3 sm:p-6 bg-bg-primary/90 rounded-sm stationery-border shadow-soft-card">
-                <span className="font-serif text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums">
+              <div className="flex flex-col items-center p-2.5 sm:p-6 bg-bg-primary rounded-sm stationery-border shadow-soft-card min-w-0">
+                <span className="font-serif text-xl min-[380px]:text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums leading-none">
                   {formatTimeNumber(time.hours)}
                 </span>
                 <span className="font-sans text-[10px] sm:text-xs tracking-widest uppercase text-text-secondary mt-1 sm:mt-2">
@@ -67,8 +71,8 @@ export const Countdown: React.FC<CountdownProps> = ({ config }) => {
               </div>
 
               {/* Minutes */}
-              <div className="flex flex-col items-center p-3 sm:p-6 bg-bg-primary/90 rounded-sm stationery-border shadow-soft-card">
-                <span className="font-serif text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums">
+              <div className="flex flex-col items-center p-2.5 sm:p-6 bg-bg-primary rounded-sm stationery-border shadow-soft-card min-w-0">
+                <span className="font-serif text-xl min-[380px]:text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums leading-none">
                   {formatTimeNumber(time.minutes)}
                 </span>
                 <span className="font-sans text-[10px] sm:text-xs tracking-widest uppercase text-text-secondary mt-1 sm:mt-2">
@@ -77,8 +81,8 @@ export const Countdown: React.FC<CountdownProps> = ({ config }) => {
               </div>
 
               {/* Seconds */}
-              <div className="flex flex-col items-center p-3 sm:p-6 bg-bg-primary/90 rounded-sm stationery-border shadow-soft-card">
-                <span className="font-serif text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums">
+              <div className="flex flex-col items-center p-2.5 sm:p-6 bg-bg-primary rounded-sm stationery-border shadow-soft-card min-w-0">
+                <span className="font-serif text-xl min-[380px]:text-2xl sm:text-5xl text-olive-deep font-medium tabular-nums leading-none">
                   {formatTimeNumber(time.seconds)}
                 </span>
                 <span className="font-sans text-[10px] sm:text-xs tracking-widest uppercase text-text-secondary mt-1 sm:mt-2">
@@ -88,14 +92,6 @@ export const Countdown: React.FC<CountdownProps> = ({ config }) => {
 
             </div>
           )}
-        </ScrollReveal>
-
-        {/* Timezone note */}
-        <ScrollReveal delay={0.4} className="mt-6">
-          <p className="font-sans text-xs text-text-secondary flex items-center justify-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-champagne-dark" />
-            <span>Timezone: {wedding.timezone}</span>
-          </p>
         </ScrollReveal>
 
       </div>

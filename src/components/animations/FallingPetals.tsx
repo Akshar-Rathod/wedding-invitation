@@ -84,7 +84,7 @@ export const FallingPetals: React.FC = () => {
             )}
 
             {p.type === 'petal-gold' && (
-              <svg viewBox="0 0 30 30" fill="none" className="w-full h-full text-[#D9C6A5]">
+              <svg viewBox="0 0 30 30" fill="none" className="w-full h-full text-[#A6844E]">
                 {/* Warm champagne gold petal */}
                 <path
                   d="M15 3 C23 5 27 12 25 20 C23 27 16 28 14 27 C8 24 4 16 6 9 C8 4 11 3 15 3 Z"
@@ -95,7 +95,7 @@ export const FallingPetals: React.FC = () => {
             )}
 
             {p.type === 'leaf-sage' && (
-              <svg viewBox="0 0 32 32" fill="none" className="w-full h-full text-[#A7AD96]">
+              <svg viewBox="0 0 32 32" fill="none" className="w-full h-full text-[#6E765C]">
                 {/* Muted sage leaf */}
                 <path
                   d="M6 26 C12 22 22 18 26 6 C20 10 10 14 6 26 Z"
@@ -122,7 +122,7 @@ export const FallingPetals: React.FC = () => {
             )}
 
             {p.type === 'flower-bud' && (
-              <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#D9C6A5]">
+              <svg viewBox="0 0 24 24" fill="none" className="w-full h-full text-[#A6844E]">
                 {/* Little jasmine / marigold bud */}
                 <circle cx="12" cy="12" r="5" fill="currentColor" fillOpacity="0.6" />
                 <path d="M12 6 C15 9 15 15 12 18" stroke="#59604B" strokeWidth="0.8" strokeOpacity="0.4" />

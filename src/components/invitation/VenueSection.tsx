@@ -13,7 +13,7 @@ export const VenueSection: React.FC<VenueSectionProps> = ({ config }) => {
   const { wedding, invitation, couple } = config;
 
   return (
-    <section id="venue" className="relative py-20 sm:py-28 px-4 sm:px-6 bg-bg-secondary/40 overflow-hidden">
+    <section id="venue" className="relative py-20 sm:py-28 px-4 sm:px-6 bg-bg-secondary overflow-hidden">
       <div className="max-w-3xl mx-auto text-center relative z-10">
         
         {/* Header */}

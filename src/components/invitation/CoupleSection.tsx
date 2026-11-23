@@ -84,16 +84,22 @@ export const CoupleSection: React.FC<CoupleSectionProps> = ({ config, viewSide =
           )}
         </div>
 
-        {/* Editorial Couple Profiles — lead with the selected side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 items-center">
+        {/* Editorial Couple Profiles */}
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-10 sm:gap-8 md:gap-6 items-start">
           {viewSide === 'bride' ? (
             <>
               {renderBride}
+              <div className="hidden md:flex items-center justify-center pt-28 pointer-events-none" aria-hidden>
+                <span className="font-script text-5xl text-champagne-dark select-none">&</span>
+              </div>
               {renderGroom}
             </>
           ) : (
             <>
               {renderGroom}
+              <div className="hidden md:flex items-center justify-center pt-28 pointer-events-none" aria-hidden>
+                <span className="font-script text-5xl text-champagne-dark select-none">&</span>
+              </div>
               {renderBride}
             </>
           )}
