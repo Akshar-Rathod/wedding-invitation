@@ -15,7 +15,6 @@ import { FallingPetals } from '../animations/FallingPetals';
 import { MusicToggle } from '../ui/MusicToggle';
 import { BackToTop } from '../ui/BackToTop';
 import { EventsQuickNav } from '../ui/EventsQuickNav';
-import { SideToggle } from '../ui/SideToggle';
 
 interface WeddingLayoutProps {
   config?: WeddingConfig;
@@ -64,9 +63,6 @@ export const WeddingLayout: React.FC<WeddingLayoutProps> = () => {
     <div className="relative min-h-screen bg-bg-primary text-text-primary selection:bg-champagne selection:text-primary">
       <FallingPetals />
 
-      {/* Floating Side Switcher (Bride Side | Groom Side) */}
-      <SideToggle side={viewSide} onToggle={handleToggleSide} />
-
       {activeConfig.music.enabled && (
         <MusicToggle config={activeConfig.music} autoPlayTriggered={autoPlayMusic} />
       )}
@@ -79,6 +75,7 @@ export const WeddingLayout: React.FC<WeddingLayoutProps> = () => {
         <InvitationEnvelope
           config={activeConfig}
           viewSide={viewSide}
+          onToggleSide={handleToggleSide}
           onOpenStart={handleOpenStart}
           onOpenComplete={handleOpenComplete}
         />

@@ -9,6 +9,7 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 interface InvitationEnvelopeProps {
   config: WeddingConfig;
   viewSide?: 'bride' | 'groom';
+  onToggleSide?: (side: 'bride' | 'groom') => void;
   onOpenComplete: (musicAllowed: boolean) => void;
   onOpenStart?: (musicAllowed: boolean) => void;
 }
@@ -16,6 +17,7 @@ interface InvitationEnvelopeProps {
 export const InvitationEnvelope: React.FC<InvitationEnvelopeProps> = ({
   config,
   viewSide = 'bride',
+  onToggleSide,
   onOpenComplete,
   onOpenStart,
 }) => {
@@ -61,6 +63,38 @@ export const InvitationEnvelope: React.FC<InvitationEnvelopeProps> = ({
 
         {/* Graceful flying birds */}
         <FlyingBirds count={4} />
+
+        {/* Bride / Groom Side Toggle — lives on envelope screen only */}
+        {onToggleSide && (
+          <div className="relative z-40 mt-4 flex-shrink-0 select-none print:hidden">
+            <div className="flex items-center p-1 rounded-full bg-bg-primary/95 backdrop-blur-md border border-champagne/80 shadow-soft-card ring-1 ring-olive-deep/10">
+              <button
+                type="button"
+                onClick={() => onToggleSide('bride')}
+                aria-pressed={viewSide === 'bride'}
+                className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-serif tracking-wide transition-all duration-300 ${
+                  viewSide === 'bride'
+                    ? 'bg-champagne-dark text-bg-primary shadow-sm font-medium'
+                    : 'text-text-secondary hover:text-olive-deep hover:bg-bg-secondary/50'
+                }`}
+              >
+                <span>Bride Side (કન્યા પક્ષ)</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => onToggleSide('groom')}
+                aria-pressed={viewSide === 'groom'}
+                className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-serif tracking-wide transition-all duration-300 ${
+                  viewSide === 'groom'
+                    ? 'bg-champagne-dark text-bg-primary shadow-sm font-medium'
+                    : 'text-text-secondary hover:text-olive-deep hover:bg-bg-secondary/50'
+                }`}
+              >
+                <span>Groom Side (વર પક્ષ)</span>
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Delicate floating background motifs */}
         <div className="absolute top-6 left-6 pointer-events-none opacity-40">
