@@ -8,12 +8,14 @@ import { Sparkles, ArrowRight } from 'lucide-react';
 
 interface InvitationEnvelopeProps {
   config: WeddingConfig;
+  viewSide?: 'bride' | 'groom';
   onOpenComplete: (musicAllowed: boolean) => void;
   onOpenStart?: (musicAllowed: boolean) => void;
 }
 
 export const InvitationEnvelope: React.FC<InvitationEnvelopeProps> = ({
   config,
+  viewSide = 'bride',
   onOpenComplete,
   onOpenStart,
 }) => {
@@ -95,7 +97,7 @@ export const InvitationEnvelope: React.FC<InvitationEnvelopeProps> = ({
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
               className="absolute w-[92%] h-[92%] bg-bg-primary rounded-sm shadow-lg border border-champagne/90 p-5 flex flex-col items-center justify-center text-center stationery-border"
             >
-              <SacredInvocation compact />
+              <SacredInvocation compact viewSide={viewSide} />
 
               <div className="font-serif text-2xl sm:text-3xl text-olive-deep mt-2 font-medium">
                 {config.couple.displayName}

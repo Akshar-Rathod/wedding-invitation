@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { WeddingConfig } from '../../types/wedding';
+import { getWeddingConfig } from '../../config/wedding';
 import { InvitationEnvelope } from '../invitation/InvitationEnvelope';
 import { HeroSection } from '../invitation/HeroSection';
 import { InvitationMessage } from '../invitation/InvitationMessage';
@@ -14,24 +15,41 @@ import { FallingPetals } from '../animations/FallingPetals';
 import { MusicToggle } from '../ui/MusicToggle';
 import { BackToTop } from '../ui/BackToTop';
 import { EventsQuickNav } from '../ui/EventsQuickNav';
+import { SideToggle } from '../ui/SideToggle';
 
 interface WeddingLayoutProps {
-  config: WeddingConfig;
+  config?: WeddingConfig;
 }
 
-export const WeddingLayout: React.FC<WeddingLayoutProps> = ({ config }) => {
-  const [envelopeOpened, setEnvelopeOpened] = useState(!config.sections.envelope);
-  const [autoPlayMusic, setAutoPlayMusic] = useState(false);
-
-  // Determine initial side from URL query param
-  const getInitialSide = () => {
+export const WeddingLayout: React.FC<WeddingLayoutProps> = () => {
+  // Determine initial side from URL query param (?side=groom or ?groom=1)
+  const getInitialSide = (): 'bride' | 'groom' => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      return params.get('groom') === '1' ? 'groom' : 'bride';
+      const side = params.get('side');
+      if (side === 'groom' || side === 'bride') return side;
+      if (params.get('groom') === '1') return 'groom';
     }
     return 'bride';
   };
-  const [viewSide] = useState<'bride' | 'groom'>(getInitialSide);
+
+  const [viewSide, setViewSide] = useState<'bride' | 'groom'>(getInitialSide);
+
+  const handleToggleSide = (newSide: 'bride' | 'groom') => {
+    setViewSide(newSide);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('side', newSide);
+      url.searchParams.delete('groom');
+      window.history.replaceState({}, '', url.toString());
+    }
+  };
+
+  // Dynamically retrieve the active configuration for the chosen side
+  const activeConfig = getWeddingConfig(viewSide);
+
+  const [envelopeOpened, setEnvelopeOpened] = useState(!activeConfig.sections.envelope);
+  const [autoPlayMusic, setAutoPlayMusic] = useState(false);
 
   const handleOpenStart = (musicAllowed: boolean) => {
     if (musicAllowed) setAutoPlayMusic(true);
@@ -45,30 +63,57 @@ export const WeddingLayout: React.FC<WeddingLayoutProps> = ({ config }) => {
   return (
     <div className="relative min-h-screen bg-bg-primary text-text-primary selection:bg-champagne selection:text-primary">
       <FallingPetals />
-      {config.music.enabled && (
-        <MusicToggle config={config.music} autoPlayTriggered={autoPlayMusic} />
+
+      {/* Floating Side Switcher (Bride Side | Groom Side) */}
+      <SideToggle side={viewSide} onToggle={handleToggleSide} />
+
+      {activeConfig.music.enabled && (
+        <MusicToggle config={activeConfig.music} autoPlayTriggered={autoPlayMusic} />
       )}
-      {envelopeOpened && config.sections.events && (
-        <EventsQuickNav events={config.events} />
+
+      {envelopeOpened && activeConfig.sections.events && (
+        <EventsQuickNav events={activeConfig.events} />
       )}
-      {config.sections.envelope && !envelopeOpened && (
+
+      {activeConfig.sections.envelope && !envelopeOpened && (
         <InvitationEnvelope
-          config={config}
+          config={activeConfig}
+          viewSide={viewSide}
           onOpenStart={handleOpenStart}
           onOpenComplete={handleOpenComplete}
         />
       )}
+
       <main className="relative z-10">
-        {config.sections.hero && <HeroSection config={config} />}
-        {config.sections.message && <InvitationMessage config={config} />}
-        {config.sections.couple && <CoupleSection config={config} viewSide={viewSide} />}
-        {config.sections.countdown && <Countdown config={config} />}
-        {config.sections.events && <WeddingEvents config={config} />}
-        {config.sections.venue && <VenueSection config={config} />}
-        {config.sections.family && <FamilySection config={config} />}
-        {config.sections.rsvp && <RSVPSection config={config} />}
-        {config.sections.closing && <ClosingSection config={config} />}
+        {activeConfig.sections.hero && (
+          <HeroSection config={activeConfig} viewSide={viewSide} />
+        )}
+        {activeConfig.sections.message && (
+          <InvitationMessage config={activeConfig} />
+        )}
+        {activeConfig.sections.couple && (
+          <CoupleSection config={activeConfig} viewSide={viewSide} />
+        )}
+        {activeConfig.sections.countdown && (
+          <Countdown config={activeConfig} />
+        )}
+        {activeConfig.sections.events && (
+          <WeddingEvents config={activeConfig} />
+        )}
+        {activeConfig.sections.venue && (
+          <VenueSection config={activeConfig} />
+        )}
+        {activeConfig.sections.family && (
+          <FamilySection config={activeConfig} viewSide={viewSide} />
+        )}
+        {activeConfig.sections.rsvp && (
+          <RSVPSection config={activeConfig} />
+        )}
+        {activeConfig.sections.closing && (
+          <ClosingSection config={activeConfig} />
+        )}
       </main>
+
       <BackToTop />
     </div>
   );

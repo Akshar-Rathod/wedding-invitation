@@ -95,9 +95,9 @@ export const WeddingEvents: React.FC<WeddingEventsProps> = ({ config }) => {
               <ScrollReveal delay={0.1 * groupIndex} yOffset={20}>
                 <div className="sticky top-[max(0.75rem,env(safe-area-inset-top))] z-20 flex justify-center py-2">
                   <div className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-3 px-5 py-2.5 rounded-full bg-bg-secondary/95 backdrop-blur-md border border-champagne/70 shadow-sm">
-                    <span className="font-serif text-lg sm:text-xl text-olive-deep">{group.day}</span>
+                    <span className="font-serif text-base sm:text-lg text-olive-deep font-medium">{group.day}</span>
                     <span className="hidden sm:inline text-champagne-dark">•</span>
-                    <span className="font-sans text-[11px] sm:text-xs tracking-[0.2em] uppercase text-text-secondary">
+                    <span className="font-sans text-xs sm:text-sm tracking-[0.2em] uppercase text-text-secondary font-medium">
                       {group.date}
                     </span>
                   </div>
@@ -126,7 +126,7 @@ export const WeddingEvents: React.FC<WeddingEventsProps> = ({ config }) => {
                       {renderEventIcon(evt.icon)}
                     </div>
 
-                    <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-olive-deep font-normal mt-1">
+                    <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-olive-deep font-normal mt-1">
                       {evt.title}
                     </h3>
 

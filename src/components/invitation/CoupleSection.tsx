@@ -1,7 +1,6 @@
 import React from 'react';
 import { WeddingConfig } from '../../types/wedding';
 import { DecorativeDivider } from '../ui/DecorativeDivider';
-import { FloralDecoration } from '../ui/FloralDecoration';
 import { FramedPhotograph } from '../ui/FramedPhotograph';
 import { ScrollReveal } from '../animations/ScrollReveal';
 
@@ -23,16 +22,22 @@ export const CoupleSection: React.FC<CoupleSectionProps> = ({ config, viewSide =
           objectPosition={bride.imagePosition || 'center 20%'}
           monogram={bride.name[0] || 'B'}
           subtitle="The Bride"
+          backTitle="From The Bride"
+          backQuote="Grace in her heart, dreams in her eyes."
+          backMessage="Cherishing sweet memories of home and entering this sacred chapter with gratitude, love, and the blessings of my beloved parents and family."
+          backAuthor="Priyanka"
         />
       </div>
       <div className="mt-6 px-4">
-        <span className="font-script text-2xl text-champagne-dark block">The Bride</span>
+        <span className="font-script text-3xl sm:text-4xl text-champagne-dark block">
+          The Bride
+        </span>
         <h3 className="font-serif text-2xl sm:text-3xl text-olive-deep font-normal mt-0.5">{bride.name}</h3>
         {bride.parents && (
-          <p className="font-serif italic text-xs sm:text-sm text-text-secondary mt-1">{bride.parents}</p>
+          <p className="font-serif italic text-sm sm:text-base text-text-primary/90 mt-1.5">{bride.parents}</p>
         )}
         {bride.bio && (
-          <p className="font-sans text-xs sm:text-sm text-text-secondary leading-relaxed mt-3 max-w-xs mx-auto">{bride.bio}</p>
+          <p className="font-sans text-xs sm:text-sm text-text-secondary leading-relaxed mt-2.5 max-w-xs mx-auto">{bride.bio}</p>
         )}
       </div>
     </ScrollReveal>
@@ -48,16 +53,22 @@ export const CoupleSection: React.FC<CoupleSectionProps> = ({ config, viewSide =
           objectPosition={groom.imagePosition || 'center 20%'}
           monogram={groom.name[0] || 'G'}
           subtitle="The Groom"
+          backTitle="From The Groom"
+          backQuote="Walking hand in hand toward a bright tomorrow."
+          backMessage="With the blessings of our elders and devotion in my heart, I step forward into this lifelong journey of love, honor, and togetherness."
+          backAuthor={viewSide === 'groom' ? 'Parasbharthi' : 'Paras'}
         />
       </div>
       <div className="mt-6 px-4">
-        <span className="font-script text-2xl text-champagne-dark block">The Groom</span>
+        <span className="font-script text-3xl sm:text-4xl text-champagne-dark block">
+          The Groom
+        </span>
         <h3 className="font-serif text-2xl sm:text-3xl text-olive-deep font-normal mt-0.5">{groom.name}</h3>
         {groom.parents && (
-          <p className="font-serif italic text-xs sm:text-sm text-text-secondary mt-1">{groom.parents}</p>
+          <p className="font-serif italic text-sm sm:text-base text-text-primary/90 mt-1.5">{groom.parents}</p>
         )}
         {groom.bio && (
-          <p className="font-sans text-xs sm:text-sm text-text-secondary leading-relaxed mt-3 max-w-xs mx-auto">{groom.bio}</p>
+          <p className="font-sans text-xs sm:text-sm text-text-secondary leading-relaxed mt-2.5 max-w-xs mx-auto">{groom.bio}</p>
         )}
       </div>
     </ScrollReveal>
@@ -103,11 +114,6 @@ export const CoupleSection: React.FC<CoupleSectionProps> = ({ config, viewSide =
               {renderBride}
             </>
           )}
-        </div>
-
-        {/* Delicate closing floral crest */}
-        <div className="mt-14 text-center">
-          <FloralDecoration position="center-crest" />
         </div>
       </div>
     </section>
